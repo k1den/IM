@@ -5,9 +5,6 @@ import java.util.*;
 
 public class Dota {
     public static void main(String[] args) {
-        if (args.length != 2) {
-            return;
-        }
 
         String filePath = args[0].replace("\\", "\\\\");
         int n = Integer.parseInt(args[1]);
@@ -15,6 +12,7 @@ public class Dota {
         try {
             Map<Integer, Integer> heroGames = new HashMap<>();
             Map<Integer, Integer> heroTopPlayer = new HashMap<>();
+            Map<Integer, Integer> heroMaxGames = new HashMap<>();
 
             BufferedReader reader = new BufferedReader(new FileReader(filePath));
             String line;
@@ -25,19 +23,28 @@ public class Dota {
                     continue;
                 }
                 String[] parts = line.split(",");
+                int userId = Integer.parseInt(parts[0]);
                 int heroId = Integer.parseInt(parts[1]);
                 int numGames = Integer.parseInt(parts[2]);
 
                 heroGames.put(heroId, heroGames.getOrDefault(heroId, 0) + numGames);
 
-                if (!heroTopPlayer.containsKey(heroId) || numGames > heroGames.get(heroId)) {
-                    heroTopPlayer.put(heroId, Integer.parseInt(parts[0]));
+                int currentMaxGames = heroMaxGames.getOrDefault(heroId, 0);
+                if (numGames > currentMaxGames) {
+                    heroMaxGames.put(heroId, numGames);
+                    heroTopPlayer.put(heroId, userId);
                 }
             }
             reader.close();
 
             List<Map.Entry<Integer, Integer>> sortedHeroes = new ArrayList<>(heroGames.entrySet());
-            sortedHeroes.sort((a, b) -> b.getValue().compareTo(a.getValue()));
+            sortedHeroes.sort(
+                    (a, b) -> {
+                        Integer gamesForHeroA = a.getValue();
+                        Integer gamesForHeroB = b.getValue();
+                        return gamesForHeroB.compareTo(gamesForHeroA);
+                    }
+            );
 
             System.out.println("| hero_id | num_all_games | user_id |");
             System.out.println("|---------|---------------|---------|");
