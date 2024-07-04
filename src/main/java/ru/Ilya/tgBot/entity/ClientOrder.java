@@ -9,7 +9,7 @@ public class ClientOrder {
     private Long id;
 
     @ManyToOne
-    @Column(nullable = false)
+    @JoinColumn(name = "client_id", nullable = false)
     private Client client;
 
     @Column(nullable = false)

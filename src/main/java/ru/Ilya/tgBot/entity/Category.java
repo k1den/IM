@@ -12,8 +12,8 @@ public class Category {
     private String name;
 
     @ManyToOne
-    @Column
-    private Category parent;
+    @JoinColumn(name = "parent_id")
+    private String parent;
 
     public Long getId() {
         return id;
@@ -31,11 +31,11 @@ public class Category {
         this.name = name;
     }
 
-    public Category getParent() {
+    public String getParent() {
         return parent;
     }
 
-    public void setParent(Category parent) {
+    public void setParent(String parent) {
         this.parent = parent;
     }
 }

@@ -9,9 +9,11 @@ public class OrderProduct {
     private Long id;
 
     @ManyToOne
+    @JoinColumn(name = "client_order_id", nullable = false)
     private ClientOrder clientOrder;
 
     @ManyToOne
+    @JoinColumn(name = "product_id", nullable = false)
     private Product product;
 
     @Column(nullable = false)
