@@ -1,5 +1,6 @@
 package ru.Ilya.tgBot;
 
+import jakarta.transaction.*;
 import org.junit.jupiter.api.*;
 import org.springframework.beans.factory.annotation.*;
 import org.springframework.boot.test.context.*;
@@ -21,6 +22,7 @@ class FillingTests
     private ProductRepository productRepository;
 
     @Test
+    @Transactional
     void createTwoClients(){
         Client client1 = new Client();
         client1.setAddress("address1");
@@ -36,58 +38,106 @@ class FillingTests
         client2.setFullName("fullName2");
         clientRepository.save(client2);
     }
-
+    
     @Test
+    @Transactional
     void createCategoriesAndProducts() {
-        Category pizza = new Category();
-        pizza.setName("Пицца");
-        pizza.setParent("Пицца");
-        categoryRepository.save(pizza);
+        //Пицца
+        Category category1 = new Category();
+        category1.setName("Пицца");
+        categoryRepository.save(category1);
 
-        Category roll1 = new Category();
-        roll1.setName("Классические роллы");
-        roll1.setParent("Роллы");
-        categoryRepository.save(roll1);
-        Category roll2 = new Category();
-        roll2.setName("Запеченные роллы");
-        roll2.setParent("Роллы");
-        categoryRepository.save(roll2);
-        Category roll3 = new Category();
-        roll3.setName("Сладкие роллы");
-        roll3.setParent("Роллы");
-        categoryRepository.save(roll3);
-        Category roll4 = new Category();
-        roll4.setName("Наборы");
-        roll4.setParent("Роллы");
-        categoryRepository.save(roll4);
+        Product product1 = new Product();
+        product1.setCategory(category1);
+        product1.setName("Пицца");
+        product1.setDescription("Вкусная пицца пеперони");
+        product1.setPrice(1000.0);
+        productRepository.save(product1);
 
-        Category burger1 = new Category();
-        burger1.setName("Классические бургеры");
-        burger1.setParent("Бургер");
-        categoryRepository.save(burger1);
-        Category burger2 = new Category();
-        burger2.setName("Острые бургеры");
-        burger2.setParent("Бургер");
-        categoryRepository.save(burger2);
+        //Роллы
+        Category category2 = new Category();
+        category2.setName("Роллы");
+        categoryRepository.save(category2);
 
-        Category drinks1 = new Category();
-        drinks1.setName("Газированные напитки");
-        drinks1.setParent("Напитки");
-        categoryRepository.save(drinks1);
-        Category drinks2 = new Category();
-        drinks2.setName("Энергетические напитки");
-        drinks2.setParent("Напитки");
-        categoryRepository.save(drinks2);
-        Category drinks3 = new Category();
-        drinks3.setName("Соки");
-        drinks3.setParent("Напитки");
-        categoryRepository.save(drinks3);
-        Category drinks4 = new Category();
-        drinks4.setName("Другие");
-        drinks4.setParent("Напитки");
-        categoryRepository.save(drinks4);
+        Product product2 = new Product();
+        product2.setCategory(category2);
+        product2.setName("Классические роллы");
+        product2.setDescription("Вкусные классические роллы");
+        product2.setPrice(1001.0);
+        productRepository.save(product2);
 
+        Product product3 = new Product();
+        product3.setCategory(category2);
+        product3.setName("Запеченные роллы");
+        product3.setDescription("Вкусные запеченные роллы");
+        product3.setPrice(10000.0);
+        productRepository.save(product3);
 
+        Product product4 = new Product();
+        product4.setCategory(category2);
+        product4.setName("Сладкие роллы");
+        product4.setDescription("Вкусные сладкие роллы");
+        product4.setPrice(1002.0);
+        productRepository.save(product4);
+
+        Product product5 = new Product();
+        product5.setCategory(category2);
+        product5.setName("Наборы");
+        product5.setDescription("Вкусные наборы");
+        product5.setPrice(1003.0);
+        productRepository.save(product5);
+
+        //Бургер
+        Category category3 = new Category();
+        category3.setName("Бургер");
+        categoryRepository.save(category3);
+
+        Product product6 = new Product();
+        product6.setCategory(category3);
+        product6.setName("Классические бургеры");
+        product6.setDescription("Вкусные классические бургеры");
+        product6.setPrice(1200.0);
+        productRepository.save(product6);
+
+        Product product7 = new Product();
+        product7.setCategory(category3);
+        product7.setName("Острые бургеры");
+        product7.setDescription("Вкусные острые бургеры");
+        product7.setPrice(1250.0);
+        productRepository.save(product7);
+
+        //Напитки
+        Category category4 = new Category();
+        category4.setName("Напитки");
+        categoryRepository.save(category4);
+
+        Product product8 = new Product();
+        product8.setCategory(category4);
+        product8.setName("Газированные напитки");
+        product8.setDescription("Вкусные газированные напитки");
+        product8.setPrice(130.0);
+        productRepository.save(product8);
+
+        Product product9 = new Product();
+        product9.setCategory(category4);
+        product9.setName("Энергетические напитки");
+        product9.setDescription("Вкусные энергетические напитки");
+        product9.setPrice(150.0);
+        productRepository.save(product9);
+
+        Product product10 = new Product();
+        product10.setCategory(category4);
+        product10.setName("Соки");
+        product10.setDescription("Вкусные соки");
+        product10.setPrice(160.0);
+        productRepository.save(product10);
+
+        Product product11 = new Product();
+        product11.setCategory(category4);
+        product11.setName("Другие");
+        product11.setDescription("Вкусные другие");
+        product11.setPrice(160.0);
+        productRepository.save(product11);
     }
 }
 
