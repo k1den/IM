@@ -122,18 +122,21 @@ class FillingTests
         product1.setName("Пеперони");
         product1.setDescription("Разновидность острой салями, приготовленной из вяленой свинины и говядины, приправленной паприкой и перцем чили");
         product1.setPrice(150.0);
+        productRepository.save(product1);
 
         Product product2 = new Product();
         product2.setCategory(category1);
         product2.setName("Мексиканская");
         product2.setDescription("Острая пицца");
         product2.setPrice(200.0);
+        productRepository.save(product2);
 
         Product product3 = new Product();
         product3.setCategory(category1);
         product3.setName("С ананасами");
         product3.setDescription("Пицца с ананасами");
         product3.setPrice(250.0);
+        productRepository.save(product3);
 
         //Роллы
         Product product4 = new Product();
@@ -141,24 +144,28 @@ class FillingTests
         product4.setName("Классические роллы");
         product4.setDescription("Роллы с красной рыбой");
         product4.setPrice(500.0);
+        productRepository.save(product4);
 
         Product product5 = new Product();
         product5.setCategory(category4);
         product5.setName("Запеченные роллы");
         product5.setDescription("Роллы из духовки");
         product5.setPrice(550.0);
+        productRepository.save(product5);
 
         Product product6 = new Product();
         product6.setCategory(category5);
         product6.setName("Сладкие роллы");
         product6.setDescription("Роллы с кислосладким соусом");
         product6.setPrice(600.0);
+        productRepository.save(product6);
 
         Product product7 = new Product();
         product7.setCategory(category6);
         product7.setName("Наборы");
         product7.setDescription("Разные наборы");
         product7.setPrice(1200.0);
+        productRepository.save(product7);
 
         //Бургеры
         Product product8 = new Product();
@@ -166,12 +173,14 @@ class FillingTests
         product8.setName("Классические бургеры");
         product8.setDescription("Две булки, котлета");
         product8.setPrice(100.0);
+        productRepository.save(product8);
 
         Product product9 = new Product();
         product9.setCategory(category9);
         product9.setName("Острые бургеры");
         product9.setDescription("Бургер с холопеньо");
         product9.setPrice(150.0);
+        productRepository.save(product9);
 
         //Напитки
         Product product10 = new Product();
@@ -179,24 +188,28 @@ class FillingTests
         product10.setName("Газированные напитки");
         product10.setDescription("Кола, спрайт, фанта");
         product10.setPrice(200.0);
+        productRepository.save(product10);
 
         Product product11 = new Product();
         product11.setCategory(category12);
         product11.setName("Энергетические напитки");
         product11.setDescription("Redbull, tornado");
         product11.setPrice(250.0);
+        productRepository.save(product11);
 
         Product product12 = new Product();
         product12.setCategory(category13);
         product12.setName("Соки");
         product12.setDescription("Добрый, дивный сад");
         product12.setPrice(100.0);
+        productRepository.save(product12);
 
         Product product13 = new Product();
         product13.setCategory(category13);
         product13.setName("Другие");
         product13.setDescription("Алкоголь");
         product13.setPrice(500.0);
+        productRepository.save(product13);
     }
 }
 
