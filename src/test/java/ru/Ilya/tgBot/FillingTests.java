@@ -56,22 +56,22 @@ class FillingTests
 
         Category classic_rolls = new Category();
         classic_rolls.setName("Классические роллы");
-        classic_rolls.setParent(rolls);
+        classic_rolls.setParent(rolls.getParent());
         categoryRepository.save(classic_rolls);
 
         Category baked_rolls = new Category();
         baked_rolls.setName("Запеченные роллы");
-        baked_rolls.setParent(rolls);
+        baked_rolls.setParent(rolls.getParent());
         categoryRepository.save(baked_rolls);
 
         Category sweet_rolls = new Category();
         sweet_rolls.setName("Сладкие роллы");
-        sweet_rolls.setParent(rolls);
+        sweet_rolls.setParent(rolls.getParent());
         categoryRepository.save(sweet_rolls);
 
         Category sets = new Category();
         sets.setName("Наборы");
-        sets.setParent(rolls);
+        sets.setParent(rolls.getParent());
         categoryRepository.save(sets);
 
         //Бургер
@@ -82,12 +82,12 @@ class FillingTests
 
         Category classic_burger = new Category();
         classic_burger.setName("Классические бургеры");
-        classic_burger.setParent(burger);
+        classic_burger.setParent(burger.getParent());
         categoryRepository.save(classic_burger);
 
         Category spicy_burgers = new Category();
         spicy_burgers.setName("Острые бургеры");
-        spicy_burgers.setParent(burger);
+        spicy_burgers.setParent(burger.getParent());
         categoryRepository.save(spicy_burgers);
 
         //Напитки
@@ -98,22 +98,22 @@ class FillingTests
 
         Category carbonated_drinks = new Category();
         carbonated_drinks.setName("Газированные напитки");
-        carbonated_drinks.setParent(drinks);
+        carbonated_drinks.setParent(drinks.getParent());
         categoryRepository.save(carbonated_drinks);
 
         Category energy_drinks = new Category();
         energy_drinks.setName("Энергетические напитки");
-        energy_drinks.setParent(drinks);
+        energy_drinks.setParent(drinks.getParent());
         categoryRepository.save(energy_drinks);
 
         Category juices = new Category();
         juices.setName("Соки");
-        juices.setParent(drinks);
+        juices.setParent(drinks.getParent());
         categoryRepository.save(juices);
 
         Category other = new Category();
         other.setName("Другие");
-        other.setParent(drinks);
+        other.setParent(drinks.getParent());
         categoryRepository.save(other);
 
         //Пицца
