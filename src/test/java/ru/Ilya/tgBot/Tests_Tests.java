@@ -12,7 +12,7 @@ import ru.Ilya.tgBot.repository.ClientRepository;
 import ru.Ilya.tgBot.repository.ProductRepository;
 
 @SpringBootTest
-class FillingTests
+class Tests_Tests
 {
     @Autowired
     private ClientRepository clientRepository;
@@ -199,6 +199,4 @@ class FillingTests
         product13.setPrice(500.0);
     }
 }
-
-
 
