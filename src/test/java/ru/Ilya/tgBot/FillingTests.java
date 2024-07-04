@@ -43,313 +43,313 @@ class FillingTests
     @Transactional
     void createCategoriesAndProducts() {
         //Пицца
-        Category category1 = new Category();
-        category1.setName("Пицца");
-        category1.setParent(null);
-        categoryRepository.save(category1);
+        Category pizza = new Category();
+        pizza.setName("Пицца");
+        pizza.setParent(null);
+        categoryRepository.save(pizza);
 
         //Роллы
-        Category category2 = new Category();
-        category2.setName("Роллы");
-        category2.setParent(null);
-        categoryRepository.save(category2);
+        Category rolls = new Category();
+        rolls.setName("Роллы");
+        rolls.setParent(null);
+        categoryRepository.save(rolls);
 
-        Category category3 = new Category();
-        category3.setName("Классические роллы");
-        category3.setParent(category2);
-        categoryRepository.save(category3);
+        Category classic_rolls = new Category();
+        classic_rolls.setName("Классические роллы");
+        classic_rolls.setParent(rolls);
+        categoryRepository.save(classic_rolls);
 
-        Category category4 = new Category();
-        category4.setName("Запеченные роллы");
-        category4.setParent(category2);
-        categoryRepository.save(category4);
+        Category baked_rolls = new Category();
+        baked_rolls.setName("Запеченные роллы");
+        baked_rolls.setParent(rolls);
+        categoryRepository.save(baked_rolls);
 
-        Category category5 = new Category();
-        category5.setName("Сладкие роллы");
-        category5.setParent(category2);
-        categoryRepository.save(category5);
+        Category sweet_rolls = new Category();
+        sweet_rolls.setName("Сладкие роллы");
+        sweet_rolls.setParent(rolls);
+        categoryRepository.save(sweet_rolls);
 
-        Category category6 = new Category();
-        category6.setName("Наборы");
-        category6.setParent(category2);
-        categoryRepository.save(category6);
+        Category sets = new Category();
+        sets.setName("Наборы");
+        sets.setParent(rolls);
+        categoryRepository.save(sets);
 
         //Бургер
-        Category category7 = new Category();
-        category7.setName("Бургер");
-        category7.setParent(null);
-        categoryRepository.save(category7);
+        Category burger = new Category();
+        burger.setName("Бургер");
+        burger.setParent(null);
+        categoryRepository.save(burger);
 
-        Category category8 = new Category();
-        category8.setName("Классические бургеры");
-        category8.setParent(category7);
-        categoryRepository.save(category8);
+        Category classic_burger = new Category();
+        classic_burger.setName("Классические бургеры");
+        classic_burger.setParent(burger);
+        categoryRepository.save(classic_burger);
 
-        Category category9 = new Category();
-        category9.setName("Острые бургеры");
-        category9.setParent(category7);
-        categoryRepository.save(category9);
+        Category spicy_burgers = new Category();
+        spicy_burgers.setName("Острые бургеры");
+        spicy_burgers.setParent(burger);
+        categoryRepository.save(spicy_burgers);
 
         //Напитки
-        Category category10 = new Category();
-        category10.setName("Напитки");
-        category10.setParent(null);
-        categoryRepository.save(category10);
+        Category drinks = new Category();
+        drinks.setName("Напитки");
+        drinks.setParent(null);
+        categoryRepository.save(drinks);
 
-        Category category11 = new Category();
-        category11.setName("Газированные напитки");
-        category11.setParent(category10);
-        categoryRepository.save(category11);
+        Category carbonated_drinks = new Category();
+        carbonated_drinks.setName("Газированные напитки");
+        carbonated_drinks.setParent(drinks);
+        categoryRepository.save(carbonated_drinks);
 
-        Category category12 = new Category();
-        category12.setName("Энергетические напитки");
-        category12.setParent(category10);
-        categoryRepository.save(category12);
+        Category energy_drinks = new Category();
+        energy_drinks.setName("Энергетические напитки");
+        energy_drinks.setParent(drinks);
+        categoryRepository.save(energy_drinks);
 
-        Category category13 = new Category();
-        category13.setName("Соки");
-        category13.setParent(category10);
-        categoryRepository.save(category13);
+        Category juices = new Category();
+        juices.setName("Соки");
+        juices.setParent(drinks);
+        categoryRepository.save(juices);
 
-        Category category14 = new Category();
-        category14.setName("Другие");
-        category14.setParent(category10);
-        categoryRepository.save(category14);
+        Category other = new Category();
+        other.setName("Другие");
+        other.setParent(drinks);
+        categoryRepository.save(other);
 
         //Пицца
-        Product product1 = new Product();
-        product1.setCategory(category1);
-        product1.setName("Пеперони");
-        product1.setDescription("Разновидность острой салями, приготовленной из вяленой свинины и говядины, приправленной паприкой и перцем чили");
-        product1.setPrice(150.0);
-        productRepository.save(product1);
+        Product pepperoni = new Product();
+        pepperoni.setCategory(pizza);
+        pepperoni.setName("Пеперони");
+        pepperoni.setDescription("Разновидность острой салями, приготовленной из вяленой свинины и говядины, приправленной паприкой и перцем чили");
+        pepperoni.setPrice(150.0);
+        productRepository.save(pepperoni);
 
-        Product product2 = new Product();
-        product2.setCategory(category1);
-        product2.setName("Мексиканская");
-        product2.setDescription("Острая пицца");
-        product2.setPrice(200.0);
-        productRepository.save(product2);
+        Product mexican = new Product();
+        mexican.setCategory(pizza);
+        mexican.setName("Мексиканская");
+        mexican.setDescription("Острая пицца");
+        mexican.setPrice(200.0);
+        productRepository.save(mexican);
 
-        Product product3 = new Product();
-        product3.setCategory(category1);
-        product3.setName("С ананасами");
-        product3.setDescription("Пицца с ананасами");
-        product3.setPrice(250.0);
-        productRepository.save(product3);
+        Product pineapple = new Product();
+        pineapple.setCategory(pizza);
+        pineapple.setName("С ананасами");
+        pineapple.setDescription("Пицца с ананасами");
+        pineapple.setPrice(250.0);
+        productRepository.save(pineapple);
 
         //Роллы
-        Product product4 = new Product();
-        product4.setCategory(category3);
-        product4.setName("Макидзуси");
-        product4.setDescription("Один из самых популярных вариантов суши во всем мире, чье название в переводе означает катаные суши.");
-        product4.setPrice(500.0);
-        productRepository.save(product4);
+        Product makizushi = new Product();
+        makizushi.setCategory(classic_rolls);
+        makizushi.setName("Макидзуси");
+        makizushi.setDescription("Один из самых популярных вариантов суши во всем мире, чье название в переводе означает катаные суши.");
+        makizushi.setPrice(500.0);
+        productRepository.save(makizushi);
 
-        Product product14 = new Product();
-        product14.setCategory(category3);
-        product14.setName("Хосомаки");
-        product14.setDescription("Это невероятно вкусный и простой в приготовлении низкокалорийный ролл с одним или двумя видами начинки.");
-        product14.setPrice(600.0);
-        productRepository.save(product14);
+        Product hosomaki = new Product();
+        hosomaki.setCategory(classic_rolls);
+        hosomaki.setName("Хосомаки");
+        hosomaki.setDescription("Это невероятно вкусный и простой в приготовлении низкокалорийный ролл с одним или двумя видами начинки.");
+        hosomaki.setPrice(600.0);
+        productRepository.save(hosomaki);
 
-        Product product15 = new Product();
-        product15.setCategory(category3);
-        product15.setName("Футомаки ");
-        product15.setDescription("Это один из самых больших роллов, внешне похожий на Макидзуси, с диаметром порции около 5 сантиметров и разнообразными начинками в различных комбинациях.");
-        product15.setPrice(700.0);
-        productRepository.save(product15);
+        Product futomaki = new Product();
+        futomaki.setCategory(classic_rolls);
+        futomaki.setName("Футомаки");
+        futomaki.setDescription("Это один из самых больших роллов, внешне похожий на Макидзуси, с диаметром порции около 5 сантиметров и разнообразными начинками в различных комбинациях.");
+        futomaki.setPrice(700.0);
+        productRepository.save(futomaki);
 
-        Product product5 = new Product();
-        product5.setCategory(category4);
-        product5.setName("Куриные роллы");
-        product5.setDescription("Интересные на вкус, сытные, с большим количеством начинки!");
-        product5.setPrice(550.0);
-        productRepository.save(product5);
+        Product chicken_rolls = new Product();
+        chicken_rolls.setCategory(baked_rolls);
+        chicken_rolls.setName("Куриные роллы");
+        chicken_rolls.setDescription("Интересные на вкус, сытные, с большим количеством начинки!");
+        chicken_rolls.setPrice(550.0);
+        productRepository.save(chicken_rolls);
 
-        Product product16 = new Product();
-        product16.setCategory(category4);
-        product16.setName("Мидийные роллы");
-        product16.setDescription("Роллы с мидиями.");
-        product16.setPrice(600.0);
-        productRepository.save(product16);
+        Product mussel_rolls = new Product();
+        mussel_rolls.setCategory(baked_rolls);
+        mussel_rolls.setName("Мидийные роллы");
+        mussel_rolls.setDescription("Роллы с мидиями.");
+        mussel_rolls.setPrice(600.0);
+        productRepository.save(mussel_rolls);
 
-        Product product17 = new Product();
-        product17.setCategory(category4);
-        product17.setName("Роллы с майонезом");
-        product17.setDescription("Роллы с майонезом.");
-        product17.setPrice(700.0);
-        productRepository.save(product17);
+        Product rolls_with_mayonnaise = new Product();
+        rolls_with_mayonnaise.setCategory(baked_rolls);
+        rolls_with_mayonnaise.setName("Роллы с майонезом");
+        rolls_with_mayonnaise.setDescription("Роллы с майонезом.");
+        rolls_with_mayonnaise.setPrice(700.0);
+        productRepository.save(rolls_with_mayonnaise);
 
-        Product product6 = new Product();
-        product6.setCategory(category5);
-        product6.setName("Ролл с бананом и манго");
-        product6.setDescription("Ролл с бананом и манго.");
-        product6.setPrice(600.0);
-        productRepository.save(product6);
+        Product banana_and_mango_roll = new Product();
+        banana_and_mango_roll.setCategory(sweet_rolls);
+        banana_and_mango_roll.setName("Ролл с бананом и манго");
+        banana_and_mango_roll.setDescription("Ролл с бананом и манго.");
+        banana_and_mango_roll.setPrice(600.0);
+        productRepository.save(banana_and_mango_roll);
 
-        Product product18 = new Product();
-        product18.setCategory(category5);
-        product18.setName("Ролл с курагой");
-        product18.setDescription("Ролл с курагой.");
-        product18.setPrice(800.0);
-        productRepository.save(product18);
+        Product roll_with_dried_apricots = new Product();
+        roll_with_dried_apricots.setCategory(sweet_rolls);
+        roll_with_dried_apricots.setName("Ролл с курагой");
+        roll_with_dried_apricots.setDescription("Ролл с курагой.");
+        roll_with_dried_apricots.setPrice(800.0);
+        productRepository.save(roll_with_dried_apricots);
 
-        Product product19 = new Product();
-        product19.setCategory(category5);
-        product19.setName("Ролл с белым шоколадом и киви");
-        product19.setDescription("Ролл с белым шоколадом и киви.");
-        product19.setPrice(800.0);
-        productRepository.save(product19);
+        Product roll_with_white_chocolate_and_kiwi = new Product();
+        roll_with_white_chocolate_and_kiwi.setCategory(sweet_rolls);
+        roll_with_white_chocolate_and_kiwi.setName("Ролл с белым шоколадом и киви");
+        roll_with_white_chocolate_and_kiwi.setDescription("Ролл с белым шоколадом и киви.");
+        roll_with_white_chocolate_and_kiwi.setPrice(800.0);
+        productRepository.save(roll_with_white_chocolate_and_kiwi);
 
-        Product product7 = new Product();
-        product7.setCategory(category6);
-        product7.setName("Тити Оки");
-        product7.setDescription("Тити Оки");
-        product7.setPrice(1_599.0);
-        productRepository.save(product7);
+        Product titi_oki = new Product();
+        titi_oki.setCategory(sets);
+        titi_oki.setName("Тити Оки");
+        titi_oki.setDescription("Тити Оки");
+        titi_oki.setPrice(1_599.0);
+        productRepository.save(titi_oki);
 
-        Product product20 = new Product();
-        product20.setCategory(category6);
-        product20.setName("Тити Хаха");
-        product20.setDescription("Тити Хаха");
-        product20.setPrice(1_399.0);
-        productRepository.save(product20);
+        Product titi_haha = new Product();
+        titi_haha.setCategory(sets);
+        titi_haha.setName("Тити Хаха");
+        titi_haha.setDescription("Тити Хаха");
+        titi_haha.setPrice(1_399.0);
+        productRepository.save(titi_haha);
 
-        Product product21 = new Product();
-        product21.setCategory(category6);
-        product21.setName("Любовная любовь");
-        product21.setDescription("Любовная любовь");
-        product21.setPrice(4_399.0);
-        productRepository.save(product21);
+        Product love_love = new Product();
+        love_love.setCategory(sets);
+        love_love.setName("Любовная любовь");
+        love_love.setDescription("Любовная любовь");
+        love_love.setPrice(4_399.0);
+        productRepository.save(love_love);
 
         //Бургеры
-        Product product8 = new Product();
-        product8.setCategory(category8);
-        product8.setName("Гамбургер");
-        product8.setDescription("Гамбургер");
-        product8.setPrice(100.0);
-        productRepository.save(product8);
+        Product hamburger = new Product();
+        hamburger.setCategory(classic_burger);
+        hamburger.setName("Гамбургер");
+        hamburger.setDescription("Гамбургер");
+        hamburger.setPrice(100.0);
+        productRepository.save(hamburger);
 
-        Product product22 = new Product();
-        product22.setCategory(category8);
-        product22.setName("Чизбургер");
-        product22.setDescription("Чизбургер");
-        product22.setPrice(150.0);
-        productRepository.save(product22);
+        Product cheeseburger = new Product();
+        cheeseburger.setCategory(classic_burger);
+        cheeseburger.setName("Чизбургер");
+        cheeseburger.setDescription("Чизбургер");
+        cheeseburger.setPrice(150.0);
+        productRepository.save(cheeseburger);
 
-        Product product23 = new Product();
-        product23.setCategory(category8);
-        product23.setName("Чикен-бургер");
-        product23.setDescription("Чикен-бургер");
-        product23.setPrice(200.0);
-        productRepository.save(product23);
+        Product chicken_burger = new Product();
+        chicken_burger.setCategory(classic_burger);
+        chicken_burger.setName("Чикен-бургер");
+        chicken_burger.setDescription("Чикен-бургер");
+        chicken_burger.setPrice(200.0);
+        productRepository.save(chicken_burger);
 
-        Product product9 = new Product();
-        product9.setCategory(category9);
-        product9.setName("Гамбургер с холопеньо");
-        product9.setDescription("Гамбургер с холопеньо");
-        product9.setPrice(150.0);
-        productRepository.save(product9);
+        Product hamburger_o = new Product();
+        hamburger_o.setCategory(spicy_burgers);
+        hamburger_o.setName("Гамбургер с холопеньо");
+        hamburger_o.setDescription("Гамбургер с холопеньо");
+        hamburger_o.setPrice(150.0);
+        productRepository.save(hamburger_o);
 
-        Product product24 = new Product();
-        product24.setCategory(category9);
-        product24.setName("Чизбургер с холопеньо");
-        product24.setDescription("Чизбургер с холопеньо");
-        product24.setPrice(200.0);
-        productRepository.save(product24);
+        Product cheeseburger_o = new Product();
+        cheeseburger_o.setCategory(spicy_burgers);
+        cheeseburger_o.setName("Чизбургер с холопеньо");
+        cheeseburger_o.setDescription("Чизбургер с холопеньо");
+        cheeseburger_o.setPrice(200.0);
+        productRepository.save(cheeseburger_o);
 
-        Product product25 = new Product();
-        product25.setCategory(category9);
-        product25.setName("Чикен-бургер с холопеньо");
-        product25.setDescription("Чикен-бургер с холопеньо");
-        product25.setPrice(250.0);
-        productRepository.save(product25);
+        Product chicken_burger_o = new Product();
+        chicken_burger_o.setCategory(spicy_burgers);
+        chicken_burger_o.setName("Чикен-бургер с холопеньо");
+        chicken_burger_o.setDescription("Чикен-бургер с холопеньо");
+        chicken_burger_o.setPrice(250.0);
+        productRepository.save(chicken_burger_o);
 
         //Напитки
-        Product product10 = new Product();
-        product10.setCategory(category11);
-        product10.setName("Спрайт");
-        product10.setDescription("Спрайт");
-        product10.setPrice(200.0);
-        productRepository.save(product10);
+        Product sprite = new Product();
+        sprite.setCategory(carbonated_drinks);
+        sprite.setName("Спрайт");
+        sprite.setDescription("Спрайт");
+        sprite.setPrice(200.0);
+        productRepository.save(sprite);
 
-        Product product26 = new Product();
-        product26.setCategory(category11);
-        product26.setName("Фанта");
-        product26.setDescription("Фанта");
-        product26.setPrice(200.0);
-        productRepository.save(product26);
+        Product fanta = new Product();
+        fanta.setCategory(carbonated_drinks);
+        fanta.setName("Фанта");
+        fanta.setDescription("Фанта");
+        fanta.setPrice(200.0);
+        productRepository.save(fanta);
 
-        Product product27 = new Product();
-        product27.setCategory(category11);
-        product27.setName("Кола");
-        product27.setDescription("Кола");
-        product27.setPrice(250.0);
-        productRepository.save(product27);
+        Product cola = new Product();
+        cola.setCategory(carbonated_drinks);
+        cola.setName("Кола");
+        cola.setDescription("Кола");
+        cola.setPrice(250.0);
+        productRepository.save(cola);
 
-        Product product11 = new Product();
-        product11.setCategory(category12);
-        product11.setName("Redbull");
-        product11.setDescription("Redbull");
-        product11.setPrice(250.0);
-        productRepository.save(product11);
+        Product redbull = new Product();
+        redbull.setCategory(energy_drinks);
+        redbull.setName("Redbull");
+        redbull.setDescription("Redbull");
+        redbull.setPrice(250.0);
+        productRepository.save(redbull);
 
-        Product product28 = new Product();
-        product28.setCategory(category12);
-        product28.setName("Tornado");
-        product28.setDescription("Tornado");
-        product28.setPrice(100.0);
-        productRepository.save(product28);
+        Product tornado = new Product();
+        tornado.setCategory(energy_drinks);
+        tornado.setName("Tornado");
+        tornado.setDescription("Tornado");
+        tornado.setPrice(100.0);
+        productRepository.save(tornado);
 
-        Product product29 = new Product();
-        product29.setCategory(category12);
-        product29.setName("Flash");
-        product29.setDescription("Flash");
-        product29.setPrice(110.0);
-        productRepository.save(product29);
+        Product flash = new Product();
+        flash.setCategory(energy_drinks);
+        flash.setName("Flash");
+        flash.setDescription("Flash");
+        flash.setPrice(110.0);
+        productRepository.save(flash);
 
-        Product product12 = new Product();
-        product12.setCategory(category13);
-        product12.setName("Добрый");
-        product12.setDescription("Добрый");
-        product12.setPrice(100.0);
-        productRepository.save(product12);
+        Product kind = new Product();
+        kind.setCategory(juices);
+        kind.setName("Добрый");
+        kind.setDescription("Добрый");
+        kind.setPrice(100.0);
+        productRepository.save(kind);
 
-        Product product30 = new Product();
-        product30.setCategory(category13);
-        product30.setName("Злой");
-        product30.setDescription("Злой");
-        product30.setPrice(100.0);
-        productRepository.save(product30);
+        Product evil = new Product();
+        evil.setCategory(juices);
+        evil.setName("Злой");
+        evil.setDescription("Злой");
+        evil.setPrice(100.0);
+        productRepository.save(evil);
 
-        Product product31 = new Product();
-        product31.setCategory(category13);
-        product31.setName("Я");
-        product31.setDescription("Я");
-        product31.setPrice(100.0);
-        productRepository.save(product31);
+        Product im = new Product();
+        im.setCategory(juices);
+        im.setName("Я");
+        im.setDescription("Я");
+        im.setPrice(100.0);
+        productRepository.save(im);
 
-        Product product13 = new Product();
-        product13.setCategory(category14);
-        product13.setName("Вода с газом");
-        product13.setDescription("Вода с газом");
-        product13.setPrice(500.0);
-        productRepository.save(product13);
+        Product water_g = new Product();
+        water_g.setCategory(other);
+        water_g.setName("Вода с газом");
+        water_g.setDescription("Вода с газом");
+        water_g.setPrice(500.0);
+        productRepository.save(water_g);
 
-        Product product32 = new Product();
-        product32.setCategory(category14);
-        product32.setName("Вода без газа");
-        product32.setDescription("Вода беза газа");
-        product32.setPrice(500.0);
-        productRepository.save(product32);
+        Product water = new Product();
+        water.setCategory(other);
+        water.setName("Вода без газа");
+        water.setDescription("Вода беза газа");
+        water.setPrice(500.0);
+        productRepository.save(water);
 
-        Product product33 = new Product();
-        product33.setCategory(category14);
-        product33.setName("Компот");
-        product33.setDescription("Компот");
-        product33.setPrice(500.0);
-        productRepository.save(product33);
+        Product compote = new Product();
+        compote.setCategory(other);
+        compote.setName("Компот");
+        compote.setDescription("Компот");
+        compote.setPrice(500.0);
+        productRepository.save(compote);
     }
 }
 
