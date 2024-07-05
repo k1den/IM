@@ -22,7 +22,6 @@ class FillingTests
     private ProductRepository productRepository;
 
     @Test
-    @Transactional
     void createTwoClients(){
         Client client1 = new Client();
         client1.setAddress("Симферополь");
@@ -40,7 +39,6 @@ class FillingTests
     }
 
     @Test
-    @Transactional
     void createCategoriesAndProducts() {
         //Пицца
         Category pizza = new Category();

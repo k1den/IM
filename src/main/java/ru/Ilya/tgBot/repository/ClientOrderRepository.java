@@ -4,7 +4,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.rest.core.annotation.*;
 import ru.Ilya.tgBot.entity.ClientOrder;
 
-@RepositoryRestResource(collectionResourceRel = "clientOrders", path = "client-orders")
+@RepositoryRestResource(collectionResourceRel = "clientOrders", path = "clientorders")
 public interface ClientOrderRepository extends JpaRepository<ClientOrder, Long>
 {
 
