@@ -1,15 +1,10 @@
 package ru.Ilya.tgBot;
 
-import jakarta.transaction.*;
 import org.junit.jupiter.api.*;
 import org.springframework.beans.factory.annotation.*;
 import org.springframework.boot.test.context.*;
-import ru.Ilya.tgBot.entity.Category;
-import ru.Ilya.tgBot.entity.Client;
-import ru.Ilya.tgBot.entity.Product;
-import ru.Ilya.tgBot.repository.CategoryRepository;
-import ru.Ilya.tgBot.repository.ClientRepository;
-import ru.Ilya.tgBot.repository.ProductRepository;
+import ru.Ilya.tgBot.entity.*;
+import ru.Ilya.tgBot.repository.*;
 
 import java.math.BigDecimal;
 
@@ -22,6 +17,10 @@ class FillingTests
     private CategoryRepository categoryRepository;
     @Autowired
     private ProductRepository productRepository;
+    @Autowired
+    private OrderProductRepository orderProductRepository;
+    @Autowired
+    private ClientOrderRepository clientOrderRepository;
 
     @Test
     void createTwoClients(){
@@ -351,4 +350,44 @@ class FillingTests
         compote.setPrice(BigDecimal.valueOf(500.0));
         productRepository.save(compote);
     }
+
+    @Test
+    void addOrdersForClients() {
+        // Предполагаем, что клиенты и продукты уже созданы и сохранены в базе данных
+        // Получаем клиентов по их externalId
+        Client client1 = clientRepository.findByExternalId(1L);
+        Client client2 = clientRepository.findByExternalId(2L);
+
+        // Создаем заказы для каждого клиента
+        ClientOrder order1 = new ClientOrder();
+        order1.setClient(client1);
+        order1.setStatus(1); // Пример статуса заказа
+        order1.setTotal(new BigDecimal("1000.00")); // Пример общей суммы заказа
+        clientOrderRepository.save(order1);
+
+        ClientOrder order2 = new ClientOrder();
+        order2.setClient(client2);
+        order2.setStatus(1); // Пример статуса заказа
+        order2.setTotal(new BigDecimal("1500.00")); // Пример общей суммы заказа
+        clientOrderRepository.save(order2);
+
+        // Предполагаем, что продукты уже созданы и сохранены в базе данных
+        // Получаем продукты по их названиям
+        Product product1 = productRepository.findByName("Пеперони");
+        Product product2 = productRepository.findByName("Макидзуси");
+
+        // Добавляем продукты в заказы
+        OrderProduct orderProduct1 = new OrderProduct();
+        orderProduct1.setClientOrder(order1);
+        orderProduct1.setProduct(product1);
+        orderProduct1.setCountProduct(1); // Количество продукта в заказе
+        orderProductRepository.save(orderProduct1);
+
+        OrderProduct orderProduct2 = new OrderProduct();
+        orderProduct2.setClientOrder(order2);
+        orderProduct2.setProduct(product2);
+        orderProduct2.setCountProduct(1); // Количество продукта в заказе
+        orderProductRepository.save(orderProduct2);
+    }
+
 }
