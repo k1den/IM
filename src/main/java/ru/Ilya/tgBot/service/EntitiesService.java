@@ -1,9 +1,8 @@
 package ru.Ilya.tgBot.service;
 
-import ru.Ilya.tgBot.entity.Client;
-import ru.Ilya.tgBot.entity.ClientOrder;
-import ru.Ilya.tgBot.entity.Product;
+import ru.Ilya.tgBot.entity.*;
 
+import java.util.Arrays;
 import java.util.List;
 import java.util.Set;
 
@@ -48,4 +47,7 @@ public interface EntitiesService {
         throw new UnsupportedOperationException("Доп. задание");
     }
 
+    List<Product> getCategoryProducts(String userText);
+
+    Product getProductById(int productId);
 }

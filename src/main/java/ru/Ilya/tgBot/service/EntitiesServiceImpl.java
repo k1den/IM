@@ -4,13 +4,8 @@ import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
-import ru.Ilya.tgBot.entity.Client;
-import ru.Ilya.tgBot.entity.ClientOrder;
-import ru.Ilya.tgBot.entity.Product;
-import ru.Ilya.tgBot.repository.ClientOrderRepository;
-import ru.Ilya.tgBot.repository.ClientRepository;
-import ru.Ilya.tgBot.repository.OrderProductRepository;
-import ru.Ilya.tgBot.repository.ProductRepository;
+import ru.Ilya.tgBot.entity.*;
+import ru.Ilya.tgBot.repository.*;
 
 import java.util.*;
 
@@ -21,13 +16,15 @@ public class EntitiesServiceImpl implements EntitiesService {
     private final OrderProductRepository orderProductRepository;
     private final ClientOrderRepository clientOrderRepository;
     private final ClientRepository clientRepository;
+    private final CategoryRepository categoryRepository;
 
     @Autowired
-    public EntitiesServiceImpl(ProductRepository productRepository, ClientOrderRepository clientOrderRepository, OrderProductRepository orderProductRepository, ClientRepository clientRepository) {
+    public EntitiesServiceImpl(ProductRepository productRepository, ClientOrderRepository clientOrderRepository, OrderProductRepository orderProductRepository, ClientRepository clientRepository, CategoryRepository categoryRepository) {
         this.productRepository = productRepository;
         this.clientOrderRepository = clientOrderRepository;
         this.orderProductRepository = orderProductRepository;
         this.clientRepository = clientRepository;
+        this.categoryRepository = categoryRepository;
     }
 
     @Override
@@ -59,6 +56,16 @@ public class EntitiesServiceImpl implements EntitiesService {
     @Override
     public List<Product> searchProductsByName(String name) {
         return productRepository.searchProductsByName(name);
+    }
+
+    @Override
+    public List<Product> getCategoryProducts(String userText) {
+        return productRepository.findProductsByCategoryName(userText);
+    }
+
+    @Override
+    public Product getProductById(int productId) {
+        return productRepository.findProductById(productId);
     }
 }
 

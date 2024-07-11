@@ -4,6 +4,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.data.rest.core.annotation.*;
+import ru.Ilya.tgBot.entity.Category;
 import ru.Ilya.tgBot.entity.Product;
 
 import java.util.List;
@@ -18,4 +19,14 @@ public interface ProductRepository extends JpaRepository<Product, Long>
 
 
     Product findByName(String пеперони);
+
+    List<Product> findProductsByCategoryName(String userText);
+
+    @Query("SELECT p FROM Product p WHERE p.category = :category")
+    List<Product> findByCategory(@Param("category") Category category);
+
+    @Query("SELECT p FROM Product p WHERE p.id = :productId")
+    Product getProductById(@Param("productId") int productId);
+
+    Product findProductById(int productId);
 }
